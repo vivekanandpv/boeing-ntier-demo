@@ -1,22 +1,17 @@
 package com.example.ntierdemo.models;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
     private String firstName;
     private String lastName;
     private String email;
     private String city;
 
-    public Customer(int customerId, String firstName, String lastName, String email, String city) {
-        this.customerId = customerId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.city = city;
-    }
-
-    public Customer() {
-    }
 
     public int getCustomerId() {
         return customerId;

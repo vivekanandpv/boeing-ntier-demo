@@ -1,5 +1,6 @@
 package com.example.ntierdemo.services;
 
+import com.example.ntierdemo.repositories.CustomerRepository;
 import com.example.ntierdemo.viewmodels.CustomerCreateViewModel;
 import com.example.ntierdemo.viewmodels.CustomerUpdateViewModel;
 import com.example.ntierdemo.viewmodels.CustomerViewModel;
@@ -9,6 +10,12 @@ import java.util.List;
 
 @Service
 public class CustomerServiceImplementation implements CustomerService {
+    private final CustomerRepository customerRepository;
+
+    public CustomerServiceImplementation(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
     @Override
     public List<CustomerViewModel> getAll() {
         return List.of();

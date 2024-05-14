@@ -4,6 +4,7 @@ import com.example.ntierdemo.services.CustomerService;
 import com.example.ntierdemo.viewmodels.CustomerCreateViewModel;
 import com.example.ntierdemo.viewmodels.CustomerUpdateViewModel;
 import com.example.ntierdemo.viewmodels.CustomerViewModel;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,12 +30,12 @@ public class CustomerApi {
     }
 
     @PostMapping
-    public ResponseEntity<CustomerViewModel> create(@RequestBody CustomerCreateViewModel viewModel) {
+    public ResponseEntity<CustomerViewModel> create(@Valid @RequestBody CustomerCreateViewModel viewModel) {
         return ResponseEntity.ok(customerService.create(viewModel));
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<CustomerViewModel> update(@PathVariable int id, @RequestBody CustomerUpdateViewModel viewModel) {
+    public ResponseEntity<CustomerViewModel> update(@PathVariable int id, @Valid @RequestBody CustomerUpdateViewModel viewModel) {
         return ResponseEntity.ok(customerService.update(id, viewModel));
     }
 
